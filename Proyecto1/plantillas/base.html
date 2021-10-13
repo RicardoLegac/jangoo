@@ -1,0 +1,19 @@
+<html>
+    <header>
+        <title>
+
+            {% block title %}
+
+            {% endblock %}
+        </title>
+    </header>
+    <body>
+        {% include "header/barra.html" %}
+            <h1> titulo comun en todas las pag </h1>
+            <h3>curso</h3>
+            {% block content %}
+
+
+            {% endblock %}
+    </body>
+</html>

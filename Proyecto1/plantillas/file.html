@@ -1,0 +1,26 @@
+<html>
+    <body>
+        {%  include "header/barra.html" %}
+        <h1>
+            documento cualquiera
+        </h1>
+    <p>el nombre es: {{ nombre_persona }}</p>
+    <p>
+        fecha: {{ fecha_actual.month }}
+    </p>
+    <p>
+        <!-- temas: {{ temas_varios.1}} -->
+    {# comentarios  #}
+    {% comment %}
+        xdd
+    {% endcomment %}
+    <ul>
+       {% for n in temas_varios %}
+            <li>{{n}}</li>
+
+        {% endfor %}
+    </ul>
+
+    </p>
+    </body>
+</html>
