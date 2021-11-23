@@ -16,7 +16,7 @@ class Articulos(models.Model):
 
     def __str__(self):
         return 'el nombre es: %s la seccion es %s el precio es %s ' % (self.nombre, self.seccion,self.precio)
-        #al hacer una consulta en postgres me sale este mensaje 
+        #al hacer una consulta en postgres me sale este mensaje
 class Pedidos(models.Model):
     numero = models.IntegerField()
     fecha = models.DateField()
