@@ -17,3 +17,9 @@ def sumar(*args, **kwargs):
 
 suma, valores = sumar(10,20, nombre='ricardo', edad= '24')
 print (suma, valores)
+
+borrar = '---------asas----------'
+borrado=borrar.strip('-')
+print (borrado)
+
+
