@@ -17,4 +17,5 @@ v = nombre + " " +  apellido
 print(f"nombre: {nombre} \napellido: {apellido}")
 print (v)
 
-nombre is apellido
+print (nombre is apellido) #identidad
+print ('r' in nombre) #pertenencia (para listas u objetos )
