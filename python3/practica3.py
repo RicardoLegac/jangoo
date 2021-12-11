@@ -1,4 +1,4 @@
-#colecciones de datos
+#colecciones de datos, diccionarios
 numeros = {
     'uno': 1,
     'dos': 2
@@ -12,3 +12,9 @@ for numero in numeros:
 
 for numero in numeros.values():
     print (numero)
+
+#conjuntos no puede almacenar un valor que se repita
+
+a = set()
+a = {'a','b','c'}
+print (a)
