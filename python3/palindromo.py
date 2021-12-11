@@ -15,4 +15,4 @@ def main():
         print('no es palindromo')
 
 if __name__ == '__main__':
-    main()
+    main() 
