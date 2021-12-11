@@ -18,3 +18,6 @@ for numero in numeros.values():
 a = set()
 a = {'a','b','c'}
 print (a)
+ingresado = input("ingrese su palabra: ")
+ingresado = set(ingresado)
+print (ingresado)
