@@ -16,3 +16,5 @@ apellido = "leguizamon"
 v = nombre + " " +  apellido
 print(f"nombre: {nombre} \napellido: {apellido}")
 print (v)
+
+nombre is apellido
