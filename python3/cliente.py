@@ -15,3 +15,5 @@ def main():
     cliente1 = Cliente('ricardo',254)
     print(cliente1)
     
+if __name__ == '__main__':
+    main()
