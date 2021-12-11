@@ -13,4 +13,6 @@ print(len(datos[0]))
 
 nombre= "ricardo"
 apellido = "leguizamon"
+v = nombre + " " +  apellido
 print(f"nombre: {nombre} \napellido: {apellido}")
+print (v)
