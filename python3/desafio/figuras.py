@@ -23,7 +23,7 @@ class Circulo(Figura):
         self.nombre = __class__.__name__
         self.radio = radio
     def area(self):
-        return math.pi * self.radio^2 
+        return math.pi * self.radio * self.radio    
     def perimetro(self):
         return 2 * math.pi * self.radio
     def __str__(self):
