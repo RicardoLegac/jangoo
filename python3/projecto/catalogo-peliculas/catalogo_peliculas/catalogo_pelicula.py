@@ -1,10 +1,12 @@
 import tkinter as tk 
+from client.gui_app import Frame
 def main():
     root = tk.Tk()
     root.title('Majinbo')
     #root.iconbitmap('/majin.ico')
     root.resizable(0,0)
     
+    app = Frame(root = root)
     
     #frame, contenedor de elementos
 
