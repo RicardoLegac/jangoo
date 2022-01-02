@@ -8,9 +8,10 @@ def main():
     
     #frame, contenedor de elementos
 
-    frame = tk.Frame(root)
-    frame.pack()
-    frame.config(width=480, height=320, bg='grey')
+    '''
+    todo esto se fue dentro de gui_app.py que es el entorno grafico de la app. todo lo que sea del frame 
+    '''
+    
 
 
 
