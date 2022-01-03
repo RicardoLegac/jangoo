@@ -47,4 +47,23 @@ class Frame(tk.Frame):
         self.self_genero.config(font=('Arial',12, 'bold'))
         self.self_genero.grid(row = 2, column= 0, padx = 10, pady=10)
         
-        
+        #entrys de cada campo
+
+        self.entry_nombre = tk.Entry(self)
+        self.entry_nombre.config(width=50, state= 'disabled', font= 'bold')
+        self.entry_nombre.grid(row=0, column= 1)
+
+        self.entry_duracion = tk.Entry(self)
+        self.entry_duracion.config(width=50, state= 'disabled', font= 'bold')
+        self.entry_duracion.grid(row=1, column= 1)
+
+        self.entry_genero = tk.Entry(self)
+        self.entry_genero.config(width=50, state= 'disabled', font= 'bold')
+        self.entry_genero.grid(row=2, column= 1)
+
+        #botones
+
+        self.boton_nuevo = tk.Button(self, text= 'Nuevo')
+        self.boton_nuevo.config(width = 20, font = ('Arial', 12, 'bold'),
+        fg= 'white' , bg='green', cursor='hand2', activebackground= '#35BD6F')
+        self.boton_nuevo.grid(row=3, column=0,padx = 10, pady=10)
