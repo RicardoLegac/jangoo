@@ -33,7 +33,7 @@ class Frame(tk.Frame):
         
         self.campos_peliculas()
         self.deshabilitar_campos()
-        
+         
     def campos_peliculas(self):
         #labels de cada campo
         self.label_nombre = tk.Label(self, text = 'Nombre')
@@ -64,7 +64,7 @@ class Frame(tk.Frame):
 
         #botones
 
-        self.boton_nuevo = tk.Button(self, text= 'Nuevo')
+        self.boton_nuevo = tk.Button(self, text= 'Nuevo', command=self.hablitar_campos)
         self.boton_nuevo.config(width = 20, font = ('Arial', 12, 'bold'),
         fg= 'white' , bg='green', cursor='hand2', activebackground= '#35BD6F')
         self.boton_nuevo.grid(row=3, column=0,padx = 10, pady=10)
@@ -74,13 +74,18 @@ class Frame(tk.Frame):
         fg= 'white' , bg='blue', cursor='hand2', activebackground= '#35BD6F')
         self.boton_guardar.grid(row=3, column=1,padx = 10, pady=10)
 
-        self.boton_cancelar = tk.Button(self, text= 'Cancelar')
+        self.boton_cancelar = tk.Button(self, text= 'Cancelar', command=self.deshabilitar_campos)
         self.boton_cancelar.config(width = 20, font = ('Arial', 12, 'bold'),
         fg= 'white' , bg='red', cursor='hand2', activebackground= '#35BD6F')
         self.boton_cancelar.grid(row=3, column=2,padx = 10, pady=10)
 
     def hablitar_campos(self):
-        pass
+        self.entry_nombre.config(state='normal')
+        self.entry_duracion.config(state='normal')
+        self.entry_genero.config(state='normal')
+        self.boton_guardar.config(state='normal')
+        self.boton_cancelar.config(state='normal')
+        self.boton_nuevo.config(state='normal')
 
     def deshabilitar_campos(self):
         self.entry_nombre.config(state='disabled')
@@ -88,4 +93,4 @@ class Frame(tk.Frame):
         self.entry_genero.config(state='disabled')
         self.boton_guardar.config(state='disabled')
         self.boton_cancelar.config(state='disabled')
-        self.boton_nuevo.config(state='disabled')
+        #self.boton_nuevo.config(state='disabled')
