@@ -32,7 +32,8 @@ class Frame(tk.Frame):
         self.config( bg='grey')
         
         self.campos_peliculas()
-
+        self.deshabilitar_campos()
+        
     def campos_peliculas(self):
         #labels de cada campo
         self.label_nombre = tk.Label(self, text = 'Nombre')
@@ -50,16 +51,16 @@ class Frame(tk.Frame):
         #entrys de cada campo
 
         self.entry_nombre = tk.Entry(self)
-        self.entry_nombre.config(width=50, state= 'disabled', font= 'bold')
-        self.entry_nombre.grid(row=0, column= 1)
+        self.entry_nombre.config(width=50, font= 'bold')
+        self.entry_nombre.grid(row=0, column= 1,columnspan=2)
 
         self.entry_duracion = tk.Entry(self)
-        self.entry_duracion.config(width=50, state= 'disabled', font= 'bold')
-        self.entry_duracion.grid(row=1, column= 1)
+        self.entry_duracion.config(width=50, font= 'bold')
+        self.entry_duracion.grid(row=1, column= 1,columnspan=2)
 
         self.entry_genero = tk.Entry(self)
-        self.entry_genero.config(width=50, state= 'disabled', font= 'bold')
-        self.entry_genero.grid(row=2, column= 1)
+        self.entry_genero.config(width=50, font= 'bold')
+        self.entry_genero.grid(row=2, column= 1,columnspan=2)
 
         #botones
 
@@ -67,3 +68,24 @@ class Frame(tk.Frame):
         self.boton_nuevo.config(width = 20, font = ('Arial', 12, 'bold'),
         fg= 'white' , bg='green', cursor='hand2', activebackground= '#35BD6F')
         self.boton_nuevo.grid(row=3, column=0,padx = 10, pady=10)
+
+        self.boton_guardar = tk.Button(self, text= 'Guardar')
+        self.boton_guardar.config(width = 20, font = ('Arial', 12, 'bold'),
+        fg= 'white' , bg='blue', cursor='hand2', activebackground= '#35BD6F')
+        self.boton_guardar.grid(row=3, column=1,padx = 10, pady=10)
+
+        self.boton_cancelar = tk.Button(self, text= 'Cancelar')
+        self.boton_cancelar.config(width = 20, font = ('Arial', 12, 'bold'),
+        fg= 'white' , bg='red', cursor='hand2', activebackground= '#35BD6F')
+        self.boton_cancelar.grid(row=3, column=2,padx = 10, pady=10)
+
+    def hablitar_campos(self):
+        pass
+
+    def deshabilitar_campos(self):
+        self.entry_nombre.config(state='disabled')
+        self.entry_duracion.config(state='disabled')
+        self.entry_genero.config(state='disabled')
+        self.boton_guardar.config(state='disabled')
+        self.boton_cancelar.config(state='disabled')
+        self.boton_nuevo.config(state='disabled')
