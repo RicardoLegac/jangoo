@@ -1,11 +1,12 @@
 import tkinter as tk 
-from client.gui_app import Frame
+from client.gui_app import Frame, barra_menu
 def main():
     root = tk.Tk()
     root.title('Majinbo')
     #root.iconbitmap('/majin.ico')
     root.resizable(0,0)
     
+    barra_menu(root)
     app = Frame(root = root)
     
     #frame, contenedor de elementos
@@ -17,7 +18,7 @@ def main():
 
 
 
-    root.mainloop() #ejecuta el final de la ejecucion  
+    app.mainloop() #ejecuta el final de la ejecucion  
 
 if __name__ == '__main__':
     main()
