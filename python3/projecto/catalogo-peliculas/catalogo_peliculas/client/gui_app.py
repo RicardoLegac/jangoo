@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import font
+from tkinter import ttk
 def barra_menu(root):
     barra_menu = tk.Menu(root)
     root.config(menu = barra_menu, width = 300, height=300)
@@ -104,4 +105,15 @@ class Frame(tk.Frame):
 
     def guardar_datos(self):
         self.deshabilitar_campos
+        
+    def tabla_peliculas(self):
+        self.tabla = ttk.Treeview(self,
+        column=('Nombre', 'Duracion', 'Generacion'))
+        self.tabla.grid(row=4, column=0, columnspan=4)
+        self.tabla.heading('#0', text='ID')
+        self.tabla.heading('#1', text='Nombre')
+        self.tabla.heading('#2', text='Duracion')
+        self.tabla.heading('#0', text='Genero')
+
+        self.tabla.insert('',0,text='1',values=('Los vengadores','2:35','Accion'))
 
