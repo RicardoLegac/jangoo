@@ -34,6 +34,7 @@ class Frame(tk.Frame):
         
         self.campos_peliculas()
         self.deshabilitar_campos()
+        self.tabla_peliculas()
          
     def campos_peliculas(self):
         #labels de cada campo
@@ -113,7 +114,7 @@ class Frame(tk.Frame):
         self.tabla.heading('#0', text='ID')
         self.tabla.heading('#1', text='Nombre')
         self.tabla.heading('#2', text='Duracion')
-        self.tabla.heading('#0', text='Genero')
+        self.tabla.heading('#3', text='Genero')
 
         self.tabla.insert('',0,text='1',values=('Los vengadores','2:35','Accion'))
 
