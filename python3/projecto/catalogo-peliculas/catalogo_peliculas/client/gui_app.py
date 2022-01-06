@@ -118,3 +118,5 @@ class Frame(tk.Frame):
 
         self.tabla.insert('',0,text='1',values=('Los vengadores','2:35','Accion'))
 
+        self.boton_cancelar = tk.Button(self, text='Cancelar', command=self.deshabilitar_campos)
+        self.boton_cancelar.config
