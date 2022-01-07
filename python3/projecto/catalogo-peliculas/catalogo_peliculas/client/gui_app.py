@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import font
 from tkinter import ttk
+from model.pelicula_dao import crear_tabla, borrar_tabla
 def barra_menu(root):
     barra_menu = tk.Menu(root)
     root.config(menu = barra_menu, width = 300, height=300)
@@ -8,8 +9,8 @@ def barra_menu(root):
    
     menu_inicio = tk.Menu(barra_menu,tearoff=0) #anclamos en barra de menu
     barra_menu.add_cascade(label='Inicio', menu = menu_inicio)
-    menu_inicio.add_command(label='crear registro en la base de datos')
-    menu_inicio.add_command(label='eliminar registro en la base de datos')
+    menu_inicio.add_command(label='crear registro en la base de datos', command=crear_tabla)
+    menu_inicio.add_command(label='eliminar registro en la base de datos',command=borrar_tabla)
     menu_inicio.add_command(label='salir', command= root.destroy)
     
     menu_consultas = tk.Menu(barra_menu, tearoff=0)
