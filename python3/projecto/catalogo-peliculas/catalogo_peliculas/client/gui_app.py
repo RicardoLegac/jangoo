@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import font
 from tkinter import ttk
-from model.pelicula_dao import crear_tabla, borrar_tabla
+from model.pelicula_dao import crear_tabla, borrar_tabla, Pelicula,guardar
 def barra_menu(root):
     barra_menu = tk.Menu(root)
     root.config(menu = barra_menu, width = 300, height=300)
@@ -106,7 +106,14 @@ class Frame(tk.Frame):
         #self.boton_nuevo.config(state='disabled')
 
     def guardar_datos(self):
-        self.deshabilitar_campos
+        pelicula = Pelicula(
+            self.mi_nombre.get(),
+            self.mi_duracion.get(),
+            self.mi_genero.get(),
+
+        )
+        guardar(pelicula)
+        self.deshabilitar_campos()
         
     def tabla_peliculas(self):
         self.tabla = ttk.Treeview(self,
