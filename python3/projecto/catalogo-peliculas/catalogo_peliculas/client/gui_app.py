@@ -118,5 +118,6 @@ class Frame(tk.Frame):
 
         self.tabla.insert('',0,text='1',values=('Los vengadores','2:35','Accion'))
 
-        self.boton_cancelar = tk.Button(self, text='Cancelar', command=self.deshabilitar_campos)
-        self.boton_cancelar.config
+        self.boton_editar = tk.Button(self, text='Editar')
+        self.boton_editar.config(width=20, font=('Arial',12,'Bold'),fg='red',activebackground='yellow')
+        self.boton_editar.grid(row=5, column=0, padx=0, pady=0)
