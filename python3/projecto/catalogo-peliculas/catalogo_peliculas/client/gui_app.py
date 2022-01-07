@@ -119,5 +119,9 @@ class Frame(tk.Frame):
         self.tabla.insert('',0,text='1',values=('Los vengadores','2:35','Accion'))
 
         self.boton_editar = tk.Button(self, text='Editar')
-        self.boton_editar.config(width=20, font=('Arial',12,'Bold'),fg='red',activebackground='yellow')
-        self.boton_editar.grid(row=5, column=0, padx=0, pady=0)
+        self.boton_editar.config(width=20, font=('Arial',12,'bold'),fg='red',activebackground='yellow')
+        self.boton_editar.grid(row=4, column=0, padx=0, pady=0)
+
+        self.boton_eliminar = tk.Button(self, text='Eliminar')
+        self.boton_eliminar.config(width=20, font=('Arial',12,'bold'))
+        self.boton_eliminar.grid(row=4,column =1 , padx=0, pady=0)
