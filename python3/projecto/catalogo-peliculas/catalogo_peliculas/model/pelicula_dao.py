@@ -12,7 +12,6 @@ def crear_tabla():
     )
     '''
     try:
-
         conexion.cursor.execute(sql)
         conexion.cerrar()
         titulo = 'Crear Registro'
@@ -59,3 +58,17 @@ def guardar(pelicula):
     except:
         messagebox.showerror('Conexion al registro', 'La tabla peliculas no esta creada')
 
+def listar_peliculas():
+    conexion = Conexion()
+    lista_peliculas =[]
+    sql = 'SELECT * FROM pelicula'
+
+    try:
+        conexion.cursor.execute(sql)
+        lista_peliculas = conexion.cursor.fetchall()
+        conexion.cerrar()
+
+    except:
+        messagebox.showerror('Lista de Peliculas', 'No se pudo obtener datos de la tabla')
+
+    return lista_peliculas
