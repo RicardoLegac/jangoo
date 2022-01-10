@@ -126,12 +126,17 @@ class Frame(tk.Frame):
         self.tabla.heading('#2', text='Duracion')
         self.tabla.heading('#3', text='Genero')
 
-        self.tabla.insert('',0,text='1',values=('Los vengadores','2:35','Accion'))
+
+        #iterar la lista de peliculas
+        for p in self.lista_peliculas:
+
+            self.tabla.insert('',0,text=p[0],
+            values=(p[1],p[2],p[3]))
 
         self.boton_editar = tk.Button(self, text='Editar')
-        self.boton_editar.config(width=20, font=('Arial',12,'bold'),fg='red',activebackground='black')
-        self.boton_editar.grid(row=4, column=0, padx=0, pady=0)
+        self.boton_editar.config(width=20, font=('Arial',12,'bold'),fg='red',activebackground='white')
+        self.boton_editar.grid(row=5, column=0, padx=0, pady=0)
 
         self.boton_eliminar = tk.Button(self, text='Eliminar')
         self.boton_eliminar.config(width=20, font=('Arial',12,'bold'))
-        self.boton_eliminar.grid(row=4,column =1 , padx=0, pady=0)
+        self.boton_eliminar.grid(row=5,column =1 , padx=0, pady=0)
