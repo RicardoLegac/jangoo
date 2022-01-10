@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import _Padding, font
+from tkinter import font
 from tkinter import ttk
 from model.pelicula_dao import crear_tabla, borrar_tabla, Pelicula,guardar, listar_peliculas
 def barra_menu(root):
@@ -122,7 +122,7 @@ class Frame(tk.Frame):
         self.lista_peliculas.reverse()
         self.tabla = ttk.Treeview(self,
         column=('Nombre', 'Duracion', 'Generacion'))
-        self.tabla.grid(row=4, column=0, columnspan=4)
+        self.tabla.grid(row=4, column=0, columnspan=4,sticky='nse')
         self.tabla.heading('#0', text='ID')
         self.tabla.heading('#1', text='Nombre')
         self.tabla.heading('#2', text='Duracion')
@@ -132,7 +132,7 @@ class Frame(tk.Frame):
         #scrollbar para la tabla de registros (si excede 10 registros)
         self.scroll = ttk.Scrollbar(self,
         orient= 'vertical', command = self.tabla.yview)
-        self.scroll.grid(row=4,column=4)
+        self.scroll.grid(row=4,column=4,sticky='nse')
         self.tabla.configure(yscrollcommand=self.scroll.set)
 
 
