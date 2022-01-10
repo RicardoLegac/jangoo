@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import font
 from tkinter import ttk
-from model.pelicula_dao import crear_tabla, borrar_tabla, Pelicula,guardar
+from model.pelicula_dao import crear_tabla, borrar_tabla, Pelicula,guardar, listar_peliculas
 def barra_menu(root):
     barra_menu = tk.Menu(root)
     root.config(menu = barra_menu, width = 300, height=300)
@@ -116,6 +116,8 @@ class Frame(tk.Frame):
         self.deshabilitar_campos()
         
     def tabla_peliculas(self):
+
+        self.lista_peliculas = listar_peliculas() #devuelve la lista de peliculas que esta en la base de datos 
         self.tabla = ttk.Treeview(self,
         column=('Nombre', 'Duracion', 'Generacion'))
         self.tabla.grid(row=4, column=0, columnspan=4)
