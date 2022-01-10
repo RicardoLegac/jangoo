@@ -17,6 +17,7 @@ def crear_tabla():
         titulo = 'Crear Registro'
         mensaje = 'se creo la tabla en la base de datos'
         messagebox.showinfo(titulo,mensaje)
+        
     except:
         titulo = 'Crear Registro'
         mensaje = 'la tabla ya esta creada'
@@ -33,6 +34,7 @@ def borrar_tabla():
         titulo = 'Eliminar Registro'
         mensaje = 'se elimino la tabla en la base de datos'
         messagebox.showinfo(titulo,mensaje)
+       
     except:
         titulo = 'Eliminar Registro'
         mensaje = 'la tabla ya esta eliminada'
