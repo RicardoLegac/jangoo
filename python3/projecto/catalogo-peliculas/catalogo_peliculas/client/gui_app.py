@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import font
 from tkinter import ttk
 from tkinter import messagebox
-from model.pelicula_dao import crear_tabla, borrar_tabla, Pelicula,guardar, listar_peliculas
+from model.pelicula_dao import crear_tabla, borrar_tabla, Pelicula,guardar, listar_peliculas,editar
 def barra_menu(root):
     barra_menu = tk.Menu(root)
     root.config(menu = barra_menu, width = 300, height=300)
@@ -33,7 +33,7 @@ class Frame(tk.Frame):
         self.root = root
         self.pack()
         self.config( bg='grey')
-        
+        self.id_pelicula =None
         self.campos_peliculas()
         self.deshabilitar_campos()
         self.tabla_peliculas()
@@ -113,7 +113,10 @@ class Frame(tk.Frame):
             self.mi_genero.get(),
 
         )
-        guardar(pelicula)
+        if self.id_pelicula == None:
+            guardar(pelicula)
+        else:
+            editar(pelicula,self.id_pelicula)
         self.deshabilitar_campos()
         self.tabla_peliculas()
         
@@ -157,10 +160,10 @@ class Frame(tk.Frame):
 
     def editar_campos(self):
         try:
-            self.id_pelicula = self.tabla.item(self.tabla.selection())['text'][0]
-            self.nombre_pelicula = self.tabla.item(self.tabla.selection())['values'][1]
-            self.duracion_pelicula = self.tabla.item(self.tabla.selection())['values'][2]
-            self.genero_pelicula = self.tabla.item(self.tabla.selection())['values'][3]
+            self.id_pelicula = self.tabla.item(self.tabla.selection())['text']
+            self.nombre_pelicula = self.tabla.item(self.tabla.selection())['values'][0]
+            self.duracion_pelicula = self.tabla.item(self.tabla.selection())['values'][1]
+            self.genero_pelicula = self.tabla.item(self.tabla.selection())['values'][2]
 
             self.hablitar_campos()
 

@@ -23,7 +23,6 @@ def crear_tabla():
         mensaje = 'la tabla ya esta creada'
         messagebox.showerror(titulo,mensaje)
         
-
 def borrar_tabla():
     conexion = Conexion()
     sql = 'DROP TABLE pelicula'
@@ -79,13 +78,14 @@ def editar(pelicula,id_pelicula):
     conexion= Conexion()
     sql=f"""
         UPDATE pelicula
-        set nombre = '{pelicula.nombre}, duracion ='{pelicula.duracion}, genero='{pelicula.duracion}'
-        WHERE id_pelicula = '{id_pelicula}'
+        set nombre = '{pelicula.nombre}', duracion ='{pelicula.duracion}, genero='{pelicula.genero}'
+        WHERE id_pelicula = {id_pelicula}
     """
-    try:
-        conexion.cursor.execute(sql)
-        conexion.cerrar()
-    except:
+    #try:
+    conexion.cursor.execute(sql)
+    conexion.cerrar()
+    '''except:
         titulo='Edicion de datos'
         mensaje='No se pudo editar el campo'
         messagebox.showerror(titulo,mensaje)
+    '''
