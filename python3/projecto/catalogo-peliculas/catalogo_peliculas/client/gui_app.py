@@ -150,5 +150,8 @@ class Frame(tk.Frame):
         self.boton_eliminar.config(width=20, font=('Arial',12,'bold'))
         self.boton_eliminar.grid(row=5,column =1 , padx=0, pady=0)
 
-    def editar_campos():
-        pass
+    def editar_campos(self):
+        try:
+            
+        except:
+        
