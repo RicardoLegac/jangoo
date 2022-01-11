@@ -142,7 +142,7 @@ class Frame(tk.Frame):
             self.tabla.insert('',0,text=p[0],
             values=(p[1],p[2],p[3]))
 
-        self.boton_editar = tk.Button(self, text='Editar')
+        self.boton_editar = tk.Button(self, text='Editar',command=self.editar_campos)
         self.boton_editar.config(width=20, font=('Arial',12,'bold'),fg='red',activebackground='white')
         self.boton_editar.grid(row=5, column=0, padx=0, pady=0)
 
@@ -152,6 +152,18 @@ class Frame(tk.Frame):
 
     def editar_campos(self):
         try:
-            
+            self.id_pelicula = self.tabla.item(self.tabla.selection())['text'][0]
+            self.nombre_pelicula = self.tabla.item(self.tabla.selection())['values'][0]
+            self.duracion_pelicula = self.tabla.item(self.tabla.selection())['values'][1]
+            self.genero_pelicula = self.tabla.item(self.tabla.selection())['values'][2]
+
+            self.hablitar_campos()
+
+            self.entry_nombre.insert(0,self.nombre_pelicula)
+            self.entry_duracion.insert(0,self.duracion_pelicula)
+            self.entry_genero.insert(0,self.genero_pelicula)
+
         except:
+            pass
         
+            
