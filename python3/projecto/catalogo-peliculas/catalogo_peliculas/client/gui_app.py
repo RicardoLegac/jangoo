@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import font
 from tkinter import ttk
+from tkinter import messagebox
 from model.pelicula_dao import crear_tabla, borrar_tabla, Pelicula,guardar, listar_peliculas
 def barra_menu(root):
     barra_menu = tk.Menu(root)
@@ -150,12 +151,16 @@ class Frame(tk.Frame):
         self.boton_eliminar.config(width=20, font=('Arial',12,'bold'))
         self.boton_eliminar.grid(row=5,column =1 , padx=0, pady=0)
 
+        self.boton_salir = tk.Button(self, command=self.root.destroy,text='Salir')
+        self.boton_salir.config(width=20,font=('Arial',12,'bold'),fg='white',activebackground='yellow',bg='red')
+        self.boton_salir.grid(row=5,column=3,padx=0,pady=0)
+
     def editar_campos(self):
         try:
             self.id_pelicula = self.tabla.item(self.tabla.selection())['text'][0]
-            self.nombre_pelicula = self.tabla.item(self.tabla.selection())['values'][0]
-            self.duracion_pelicula = self.tabla.item(self.tabla.selection())['values'][1]
-            self.genero_pelicula = self.tabla.item(self.tabla.selection())['values'][2]
+            self.nombre_pelicula = self.tabla.item(self.tabla.selection())['values'][1]
+            self.duracion_pelicula = self.tabla.item(self.tabla.selection())['values'][2]
+            self.genero_pelicula = self.tabla.item(self.tabla.selection())['values'][3]
 
             self.hablitar_campos()
 
@@ -164,6 +169,7 @@ class Frame(tk.Frame):
             self.entry_genero.insert(0,self.genero_pelicula)
 
         except:
-            pass
-        
+            titulo = 'Edicion de datos'
+            mensaje = 'no ha seleccionado ningun registro'
+            messagebox.showerror(titulo,mensaje)        
             
