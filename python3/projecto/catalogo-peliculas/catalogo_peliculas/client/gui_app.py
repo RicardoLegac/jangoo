@@ -177,14 +177,14 @@ class Frame(tk.Frame):
             messagebox.showerror(titulo,mensaje)        
 
     def eliminar_datos(self):
-        #try:
-        self.id_pelicula = self.tabla.item(self.tabla.selection())['text']
-        eliminar(self.id_pelicula)
+        try:
+            self.id_pelicula = self.tabla.item(self.tabla.selection())['text']
+            eliminar(self.id_pelicula)
 
-        self.tabla_peliculas()
-        self.id_pelicula= None
-        '''except:
+            self.tabla_peliculas()
+            self.id_pelicula= None
+        except:
             titulo = 'Eliminar registro'
             mensaje = 'No se ha seleccionado ningun registro'
             messagebox.showerror(titulo,mensaje)       
-        '''
+        
