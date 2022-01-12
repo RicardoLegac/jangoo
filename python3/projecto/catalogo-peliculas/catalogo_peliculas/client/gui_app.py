@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import font
 from tkinter import ttk
 from tkinter import messagebox
-from model.pelicula_dao import crear_tabla, borrar_tabla, Pelicula,guardar, listar_peliculas,editar
+from model.pelicula_dao import crear_tabla, borrar_tabla, Pelicula, eliminar,guardar, listar_peliculas,editar,eliminar
 def barra_menu(root):
     barra_menu = tk.Menu(root)
     root.config(menu = barra_menu, width = 300, height=300)
@@ -123,7 +123,7 @@ class Frame(tk.Frame):
     def tabla_peliculas(self):
 
         self.lista_peliculas = listar_peliculas() #devuelve la lista de peliculas que esta en la base de datos 
-        self.lista_peliculas.reverse()
+        self.lista_peliculas.reverse() 
         self.tabla = ttk.Treeview(self,
         column=('Nombre', 'Duracion', 'Generacion'))
         self.tabla.grid(row=4, column=0, columnspan=4,sticky='nse')
@@ -150,7 +150,7 @@ class Frame(tk.Frame):
         self.boton_editar.config(width=20, font=('Arial',12,'bold'),fg='red',activebackground='white')
         self.boton_editar.grid(row=5, column=0, padx=0, pady=0)
 
-        self.boton_eliminar = tk.Button(self, text='Eliminar')
+        self.boton_eliminar = tk.Button(self, text='Eliminar',command=self.eliminar_datos)
         self.boton_eliminar.config(width=20, font=('Arial',12,'bold'))
         self.boton_eliminar.grid(row=5,column =1 , padx=0, pady=0)
 
@@ -175,4 +175,13 @@ class Frame(tk.Frame):
             titulo = 'Edicion de datos'
             mensaje = 'no ha seleccionado ningun registro'
             messagebox.showerror(titulo,mensaje)        
-            
+
+    def eliminar_datos(self):
+        try:
+            self.id_pelicula = self.tabla.item(self.tabla.selection())['text']
+            eliminar(self.id_pelicula)
+
+        except:
+            titulo = 'Eliminar registro'
+            mensaje = 'No se ha seleccionado ningun registro'
+            messagebox.showerror(titulo,mensaje)       

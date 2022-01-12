@@ -91,7 +91,7 @@ def editar(pelicula,id_pelicula):
 def eliminar(id_pelicula):
     conexion = Conexion()
     sql =f"""
-        DELETE FROM * pelicula 
+        DELETE * FROM pelicula 
         WHERE id_pelicula = {id_pelicula}
         """
     try:
