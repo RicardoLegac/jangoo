@@ -88,3 +88,16 @@ def editar(pelicula,id_pelicula):
         mensaje='No se pudo editar el campo'
         messagebox.showerror(titulo,mensaje)
     '''
+def eliminar(id_pelicula):
+    conexion = Conexion()
+    sql =f"""
+        DELETE FROM * pelicula 
+        WHERE id_pelicula = {id_pelicula}
+        """
+    try:
+        conexion.cursor.execute(sql)
+        conexion.cerrar()
+    except:
+        titulo = 'Eliminar datos'
+        mensaje='No se pudo eliminar el mensaje'
+        messagebox.showerror(titulo,mensaje)
