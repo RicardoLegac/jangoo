@@ -80,20 +80,17 @@ def editar(pelicula,id_pelicula):
     SET nombre = '{pelicula.nombre}', duracion = '{pelicula.duracion}',
     genero = '{pelicula.genero}'
     WHERE id_pelicula = {id_pelicula}"""
-    #try:
-    conexion.cursor.execute(sql)
-    conexion.cerrar()
-    '''except:
+    try:
+        conexion.cursor.execute(sql)
+        conexion.cerrar()
+    except:
         titulo='Edicion de datos'
         mensaje='No se pudo editar el campo'
         messagebox.showerror(titulo,mensaje)
-    '''
+    
 def eliminar(id_pelicula):
     conexion = Conexion()
-    sql =f"""
-        DELETE * FROM pelicula 
-        WHERE id_pelicula = {id_pelicula}
-        """
+    sql = f'DELETE FROM pelicula WHERE id_pelicula = {id_pelicula}'
     try:
         conexion.cursor.execute(sql)
         conexion.cerrar()
@@ -101,3 +98,4 @@ def eliminar(id_pelicula):
         titulo = 'Eliminar datos'
         mensaje='No se pudo eliminar el mensaje'
         messagebox.showerror(titulo,mensaje)
+    

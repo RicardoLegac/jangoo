@@ -94,7 +94,7 @@ class Frame(tk.Frame):
         self.boton_nuevo.config(state='normal')
 
     def deshabilitar_campos(self):
-
+        self.id_pelicula = None
         self.mi_nombre.set('')
         self.mi_duracion.set('')
         self.mi_genero.set('')
@@ -177,11 +177,14 @@ class Frame(tk.Frame):
             messagebox.showerror(titulo,mensaje)        
 
     def eliminar_datos(self):
-        try:
-            self.id_pelicula = self.tabla.item(self.tabla.selection())['text']
-            eliminar(self.id_pelicula)
+        #try:
+        self.id_pelicula = self.tabla.item(self.tabla.selection())['text']
+        eliminar(self.id_pelicula)
 
-        except:
+        self.tabla_peliculas()
+        self.id_pelicula= None
+        '''except:
             titulo = 'Eliminar registro'
             mensaje = 'No se ha seleccionado ningun registro'
             messagebox.showerror(titulo,mensaje)       
+        '''
