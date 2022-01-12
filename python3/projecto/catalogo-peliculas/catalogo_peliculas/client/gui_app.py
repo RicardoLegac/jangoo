@@ -107,16 +107,16 @@ class Frame(tk.Frame):
         #self.boton_nuevo.config(state='disabled')
 
     def guardar_datos(self):
-        pelicula = Pelicula(
+        self.pelicula = Pelicula(
             self.mi_nombre.get(),
             self.mi_duracion.get(),
             self.mi_genero.get(),
 
         )
         if self.id_pelicula == None:
-            guardar(pelicula)
+            guardar(self.pelicula)
         else:
-            editar(pelicula,self.id_pelicula)
+            editar(self.pelicula,self.id_pelicula)
         self.deshabilitar_campos()
         self.tabla_peliculas()
         
