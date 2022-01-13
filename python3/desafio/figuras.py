@@ -32,5 +32,5 @@ class Circulo(Figura):
 
 def probar_figura(figura):
     print(figura)
-    print('Area: ', figura.area())
+    print('Area : ', figura.area())
     print('Perimetro', figura.perimetro())
