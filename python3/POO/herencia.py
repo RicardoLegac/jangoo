@@ -19,7 +19,8 @@ class Vehiculos():
         print("Marca", self.marca, "\nModelo", self.modelo, "\nEn marcha: ", self.enmarcha, "\nAcelera: ", self.acelera, "\nFrena: ", self.frena)
 
 class Moto(Vehiculos):
-    pass
+    def estado (self):
+        print("Marca", self.marca, "\nModelo", self.modelo, "\nEn marcha: ", self.enmarcha, "\nAcelera: ", self.acelera, "\nFrena: ", self.frena, "\nes moto")
 
 un_vehiculo = Moto("Honda", "gt")
 un_vehiculo.acelerar()
