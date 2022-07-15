@@ -4,6 +4,6 @@ setup(
     version =  "1.0",
     description= "calculos basicos",
     author="Ricardo", 
-    packages=["calculos","operaciones"]
+    packages=["calculos","calculos"]
 
 )
