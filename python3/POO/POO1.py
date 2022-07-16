@@ -1,5 +1,7 @@
 class Coche: 
-    def __init__(self):
+    def __init__(self,marca,modelo):
+        self.marca = marca
+        self.modelo = modelo 
         self.largoChassis=250 #propiedad comun de class Coche
         self.largoAncho = 120
         self.__ruedas = 4
@@ -21,6 +23,7 @@ class Coche:
     
     def estado(self):
         print ("Cantidad de ruedas = " , self.__ruedas , "\n")
+        print ("marca: " , self.marca , "\nmodelo: ",self.modelo ," \n")
     
     def __chequeo(self): #metodo encapsulado  
         print("chequeando el auto")
@@ -32,8 +35,23 @@ class Coche:
         else:
             return False
 
-micoche = Coche()
+micoche = Coche("toyota","corolla")
 micoche.arrancar(True)
 micoche.ruedas = 5
 micoche.estado()
 print (micoche.largoChassis);
+
+c1= Coche("Nissan", "Frontier")
+c2 = Coche("Dodge" ,"Ram")
+
+coches= [micoche,c1,c2]
+import pickle
+fichero = open("loscoches","wb")
+pickle.dump(coches,fichero)
+fichero.close()
+del fichero
+
+apertura_fichero = open("loscoches","rb")
+miscoches= pickle.load(apertura_fichero)
+for c in miscoches:
+    print (c.estado())
