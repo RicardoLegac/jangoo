@@ -1,3 +1,4 @@
+from io import SEEK_CUR, SEEK_SET
 import pickle 
 class Persona:
     def __init__(self,nombre,edad,genero):
@@ -7,18 +8,38 @@ class Persona:
     def __str__(self):
         return "{} {} {}".format(self.nombre, self.edad, self.genero)
 
-class ListarPersonas:
-    personas = []
+class AgregarPersona:
+    personas =[]
+    def __init__(self):
+        listapersona = open("listapersona", "ab+")
+        listapersona.seek(SEEK_SET)
+        try: 
+            self.personas = pickle.load(listapersona)
+            print(" se cargaron {} objetos ".format(len(self.personas)))
+        except: 
+            print("el fichero esta vacio")
+        finally:
+            listapersona.close()
+            del listapersona
     def agregarPersonas(self,persona):
         self.personas.append(persona)
     
-    def mostrarPersonas(self):
+    def mostrarPersona(self):
         for c in self.personas:
             print(c)
 
+    def guardarPersonas(self):
+        listapersonas = open("ficheroexterno","wb")
+        pickle.dumb(self.personas,listapersonas)
+        listapersonas.close()
+        del listapersonas
+
+
+
 p1 = Persona("Ricardo",24,"M")
 p2 = Persona("Marlyn",24,"F")
-lista = ListarPersonas()
+lista = AgregarPersona()
 lista.agregarPersonas(p1)
 lista.agregarPersonas(p2)
+lista.mostrarPersona()
 print(p1.__str__())
