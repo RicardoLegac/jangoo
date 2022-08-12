@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>aaa</title>
+    </head>
+    <body>
+        <h1>xd</h1>
+        <div>
+            <ul>
+                {% for p in personas %}
+                    <li>
+                        {{p.id}} {{p.nombre}}
+                        <a href="detalle_persona/{{p.id}}">Ver Detalle</a>
+                    </li>
+                    
+                    
+                {% endfor%}
+                <a href = "nueva_persona">nueva persona</a>
+            </ul>
+    </body>
+</html>

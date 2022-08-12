@@ -1,4 +1,4 @@
-import pickle 
+	import pickle 
 class Persona:
     def __init__(self,nombre,edad,genero):
         self.nombre =nombre
