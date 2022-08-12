@@ -25,3 +25,14 @@ def nuevaPersona(request):
     else:
         persona = personaForm()
         return render(request, 'persona/nuevo.html',{'formapersona':persona})
+
+def editarPersona(request,id):
+    if request.method=='POST':
+        formaPersona = personaForm(request.POST)
+        if formaPersona.is_valid():
+            formaPersona.save()
+            return redirect('index')
+        else: 
+            persona = get_object_or_404(pk=id)
+            formaPersona = personaForm(instance=persona)
+    return render(request,'persona/editar.html',{'formaPersona':formaPersona})

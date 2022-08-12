@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>nueva persona</title>
+</head>
+<body>
+    <form method="POST"> <!-- si no ponemos de tipo post por default viene tipo get y se va a ver en nuestra url-->
+        <table>
+            {{formapersona}}
+        </table>
+        <button type="submit">editar</button>
+        {% csrf_token %}
+    </form>
+</body>
+</html>
