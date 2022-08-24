@@ -27,12 +27,19 @@ def nuevaPersona(request):
         return render(request, 'persona/nuevo.html',{'formapersona':persona})
 
 def editarPersona(request,id):
+    persona = get_object_or_404(Persona,pk=id)
     if request.method=='POST':
-        formaPersona = personaForm(request.POST)
+        formaPersona = personaForm(request.POST,instance = persona)
         if formaPersona.is_valid():
             formaPersona.save()
             return redirect('index')
-        else: 
-            persona = get_object_or_404(pk=id)
-            formaPersona = personaForm(instance=persona)
+    else: 
+       
+        formaPersona = personaForm(instance=persona)
     return render(request,'persona/editar.html',{'formaPersona':formaPersona})
+
+def eliminarPersona(request,id):
+    persona = get_object_or_404(Persona, pk=id) #recuperamos la persona de la base de datos segun el id que hayamos seleccionado
+    if persona: #si existe el registro persona
+        persona.delete()
+    return redirect('index')

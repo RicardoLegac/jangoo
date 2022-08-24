@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
     <head>
-        <title>aaa</title>
+        <title>bienvenido</title>
     </head>
     <body>
-        <h1>xd</h1>
+        <h1>SAP</h1>
         <div>
             <ul>
                 {% for p in personas %}
@@ -12,6 +12,7 @@
                         {{p.id}} {{p.nombre}}
                         <a href="detalle_persona/{{p.id}}">Ver Detalle</a>
                         <a href="editar_persona/{{p.id}}">editar</a>
+                        <a href="eliminar_persona/{{p.id}}">eliminar</a>
                     </li>
                     
                     

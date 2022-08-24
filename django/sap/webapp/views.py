@@ -5,7 +5,7 @@ from personas.models import Persona
 
 # Create your views here.
 def bienvenido(request):
-    personas = Persona.objects.all()
+    personas = Persona.objects.order_by('id')
     return render(request,'bienvenido.html',{'personas':personas})
 
 def despedida(request):
